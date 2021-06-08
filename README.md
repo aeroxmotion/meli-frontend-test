@@ -12,6 +12,11 @@
 El proyecto parte de una arquitectura base de [Next.js](https://nextjs.org/).
 A continuación detallo cada una de las carpetas y su propósito en el proyecto:
 
+### Carpeta `/__test__`
+
+- **Sub-carpeta `ui`**: Contiene las pruebas end-to-end para probar la interfaz del usuario.
+- **Sub-carpeta `api`**: Contienes las pruebas end-to-end que prueban el API custom de MercadoLibre.
+
 ### Carpeta `/clients`
 
 Aquí se alojan los clientes consumidos por la UI y por el API custom.
