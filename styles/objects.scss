@@ -1,0 +1,48 @@
+.o-container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+@mixin make-columns($index, $breakpointName: '') {
+  @if $breakpointName == '' {
+    @include base-make-columns($index);
+  } @else {
+    @media screen and (min-width: #{map-get($breakpoints, $breakpointName)}) {
+      @include base-make-columns($index, '-#{$breakpointName}');
+    }
+  }
+}
+
+@mixin base-make-columns($index, $breakpointPrefix: '') {
+  &__column-start#{$breakpointPrefix}-#{$index} {
+    grid-column-start: #{$index};
+  }
+
+  &__column-end#{$breakpointPrefix}-#{$index} {
+    grid-column-end: #{$index};
+  }
+
+  &__column-span#{$breakpointPrefix}-#{$index} {
+    grid-column: span #{$index};
+  }
+}
+
+.o-grid {
+  $grid-columns: 12;
+
+  display: grid;
+  grid-template-columns: repeat(#{$grid-columns}, 1fr);
+  column-gap: var(--gap);
+
+  @for $i from 1 through $grid-columns {
+    @include make-columns($i);
+  }
+
+  @for $i from 1 through $grid-columns {
+    @each $name, $size in $breakpoints {
+      @include make-columns($i, $name);
+    }
+  }
+}

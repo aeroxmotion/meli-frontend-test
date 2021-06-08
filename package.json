@@ -1,0 +1,44 @@
+{
+  "name": "meli-frontend-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test:api": "jest",
+    "test:ui": "jest -c jest-ui.config.ts",
+    "test": "yarn test:api && yarn test:ui"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "ky": "0.25",
+    "ky-universal": "0.8",
+    "next": "10.0.7",
+    "next-absolute-url": "^1.2.2",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "sass": "^1.32.8"
+  },
+  "devDependencies": {
+    "@jest/types": "^26",
+    "@types/classnames": "^2.2.11",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.31",
+    "@types/nprogress": "^0.2.0",
+    "@types/react": "^17.0.2",
+    "@types/test-listen": "^1.1.0",
+    "expect-playwright": "^0.4.0",
+    "jest": "^26.6.3",
+    "jest-playwright-preset": "^1.6.0",
+    "playwright": "^1.11.1",
+    "playwright-core": "^1.11.1",
+    "prettier": "2.2.1",
+    "test-listen": "^1.1.0",
+    "ts-jest": "^26.5.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.2.2"
+  }
+}

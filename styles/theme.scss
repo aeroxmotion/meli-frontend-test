@@ -1,0 +1,33 @@
+:root {
+  /**
+   * Custom colors
+   */
+  --yellow-color: #ffe600;
+  --blue-color: #3483fa;
+  --black-color: #333333;
+  --dark-grey-color: #666666;
+  --light-grey-color: #999999;
+  --white-color: #eeeeee;
+  --pure-white-color: #fff;
+
+  /**
+   * Font sizes
+   */
+  --text-xs: 12px;
+  --text-s: 14px;
+  --text-m: 18px;
+  --text-l: 24px;
+  --text-xl: 28px;
+  --text-xxl: 46px;
+
+  /**
+   * Gaps
+   */
+  --gap: 16px;
+  --double-gap: calc(var(--gap) * 2);
+
+  /**
+   * Border radius
+   */
+  --border-radius: 4px;
+}

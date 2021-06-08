@@ -1,0 +1,48 @@
+.container {
+  background-color: var(--white-color);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.subTitle {
+  color: var(--black-color);
+  font-weight: bold;
+  font-size: var(--text-l);
+
+  margin-top: calc(var(--double-gap) * 2);
+}
+
+.goHomeLink {
+  color: var(--blue-color);
+  font-size: var(--text-m);
+  text-decoration: none;
+
+  position: relative;
+
+  border-radius: var(--border-radius);
+  padding: 0.5em 1em;
+  margin-top: var(--double-gap);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:hover {
+    &::before {
+      background-color: var(--blue-color);
+      opacity: 0.25;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.u-full-height {
+  height: 100% !important;
+}
+
+@each $name, $size in $breakpoints {
+  @media screen and (min-width: #{$size}) {
+    .u-hide-from-#{$name} {
+      display: none !important;
+    }
+
+    .u-no-br-from-#{$name} {
+      border-radius: 0 !important;
+    }
+
+    .u-px-from-#{$name} {
+      padding-left: var(--gap) !important;
+      padding-right: var(--gap) !important;
+    }
+  }
+
+  @media screen and (max-width: #{$size}) {
+    .u-hide-to-#{$name} {
+      display: none !important;
+    }
+
+    .u-no-br-to-#{$name} {
+      border-radius: 0 !important;
+    }
+
+    .u-px-to-#{$name} {
+      padding-left: var(--gap) !important;
+      padding-right: var(--gap) !important;
+    }
+  }
+}

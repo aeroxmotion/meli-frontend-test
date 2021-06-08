@@ -1,0 +1,17 @@
+@import '../styles/tools.scss';
+
+.noSearchText {
+  margin-top: var(--double-gap);
+
+  font-size: var(--text-m);
+  color: var(--dark-grey-color);
+  text-align: center;
+
+  @include mq-to('m') {
+    padding-right: var(--gap);
+    padding-left: var(--gap);
+
+    text-align: center;
+    font-size: var(--text-s);
+  }
+}

@@ -1,0 +1,12 @@
+.pageContainer {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  height: 100vh;
+}
+
+.pageContent {
+  padding-bottom: var(--gap);
+
+  background-color: var(--white-color);
+}

@@ -1,0 +1,73 @@
+@import '../../../styles/tools.scss';
+
+.commonSearchItemContainer {
+  display: flex;
+  align-items: center;
+
+  padding: var(--gap);
+
+  color: var(--pure-white-color);
+  cursor: pointer;
+}
+
+.commonSearchItemThumbnail {
+  --thumbnail-size: 180px;
+
+  border-radius: var(--border-radius);
+  width: var(--thumbnail-size);
+  height: var(--thumbnail-size);
+
+  object-fit: contain;
+  object-position: center;
+
+  @include mq-to('m') {
+    --thumbnail-size: 140px;
+  }
+
+  @include mq-to('s') {
+    --thumbnail-size: 100px;
+  }
+}
+
+.commonSearchItemContent {
+  flex: 1;
+  margin-left: var(--gap);
+}
+
+.commonSearchItemPrice {
+  display: flex;
+  align-items: flex-end;
+
+  margin-top: var(--gap);
+  margin-bottom: var(--double-gap);
+
+  font-weight: normal;
+  font-size: var(--text-l);
+  color: var(--black-color);
+
+  @include mq-to('s') {
+    margin-bottom: var(--gap);
+    font-size: var(--text-m);
+  }
+}
+
+.commonSearchShippingIcon {
+  margin-left: calc(var(--gap) / 2);
+}
+
+.commonSearchItemTitle {
+  font-weight: normal;
+  font-size: var(--text-m);
+  color: var(--black-color);
+
+  @include mq-to('s') {
+    font-size: var(--text-s);
+  }
+}
+
+.commonSearchItemCity {
+  margin-top: var(--gap);
+
+  font-size: var(--text-xs);
+  color: var(--light-grey-color);
+}

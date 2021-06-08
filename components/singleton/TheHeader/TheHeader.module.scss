@@ -1,0 +1,17 @@
+.headerWrapper {
+  position: sticky;
+  top: 0;
+
+  background-color: var(--yellow-color);
+}
+
+.headerContainer {
+  --header-padding: 0.4em;
+
+  padding-top: var(--header-padding);
+  padding-bottom: var(--header-padding);
+}
+
+.headerLogoContainer {
+  justify-self: center;
+}

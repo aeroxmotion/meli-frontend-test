@@ -1,0 +1,43 @@
+@import '../../../styles/tools.scss';
+
+.searchBarContainer {
+  display: flex;
+
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  height: 100%;
+}
+
+.searchBarInput {
+  --search-input-text-size: var(--text-m);
+
+  flex-grow: 1;
+
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+
+  background-color: var(--pure-white-color);
+  font-size: var(--search-input-text-size);
+  color: var(--dark-grey-color);
+
+  @include mq-to('m') {
+    --search-input-text-size: var(--text-s);
+  }
+
+  &::placeholder {
+    color: var(--light-grey-color);
+  }
+}
+
+.searchBarButton {
+  --search-bar-button-gap: calc(var(--gap) / 1.5);
+
+  display: flex;
+  align-items: center;
+
+  padding-left: var(--search-bar-button-gap);
+  padding-right: var(--search-bar-button-gap);
+
+  background-color: var(--white-color);
+  cursor: pointer;
+}

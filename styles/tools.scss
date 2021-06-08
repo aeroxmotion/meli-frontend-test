@@ -1,0 +1,7 @@
+@import './settings.scss';
+
+@mixin mq-to($breakpoint) {
+  @media screen and (max-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}

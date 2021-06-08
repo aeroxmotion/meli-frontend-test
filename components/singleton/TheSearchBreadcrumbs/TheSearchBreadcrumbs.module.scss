@@ -1,0 +1,39 @@
+.searchBreadcrumbsContainer {
+  display: flex;
+
+  padding-top: var(--gap);
+  padding-bottom: var(--gap);
+}
+
+.searchBreadcrumb {
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+
+  color: var(--light-grey-color);
+  font-size: var(--text-s);
+
+  &:not(:first-child)::before {
+    --icon-size: var(--text-s);
+
+    content: '';
+
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    // Thanks to heroicons: https://heroicons.dev/?query=chevron
+    background-image: url("data:image/svg+xml,%3Csvg fill='none' stroke='gray' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'%3E%3C/path%3E%3C/svg%3E");
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-l);
+    line-height: 1;
+
+    width: calc(var(--icon-size) + var(--gap) / 2);
+    height: var(--icon-size);
+  }
+
+  &:last-child {
+    font-weight: bold;
+  }
+}

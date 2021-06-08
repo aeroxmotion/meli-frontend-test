@@ -1,0 +1,14 @@
+.itemsContainer {
+  background-color: var(--pure-white-color);
+  border-radius: var(--border-radius);
+}
+
+.itemSeparator {
+  --item-gutter: calc(var(--gap) + var(--gap) / 2);
+
+  margin-left: var(--item-gutter);
+  margin-right: var(--item-gutter);
+  height: 1px;
+
+  background-color: var(--white-color);
+}
