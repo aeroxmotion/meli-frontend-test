@@ -1,5 +1,7 @@
 # MeLi front-end Test
 
+Demo pública de la aplicación: https://meli-frontend-test-aeroxmotion.vercel.app/
+
 ## Tabla de contenido (TOC)
 
 1. [Estructura del proyecto](#scaffolding)
