@@ -1,7 +1,7 @@
 const ROOT_URL = 'http://localhost:3000'
 const SEARCH_VALUE = 'ABC'
 const EXPECTED_SEARCH_ITEMS = 4
-const EXPECTED_SEARCH_CATEGORIES = 3
+const EXPECTED_SEARCH_CATEGORIES = 5
 const SEARCH_ITEM_URL_REGEX = new RegExp(`^${ROOT_URL}/items/MLA\\d+$`)
 const ITEM_CONDITION_REGEX = /^\s*(?:Nuevo|Usado) - \d+ vendidos\s*$/
 const ITEM_PRICE_HTML_REGEX = /^\$ \d+.+?<sup>\d{2,2}<\/sup>$/m

@@ -7,17 +7,17 @@ const TheSearchBreadcrumbs: React.FC<TheSearchBreadcrumbsProps> = ({
   categories
 }) => {
   return (
-    <div
+    <ul
       className={classNames(styles.searchBreadcrumbsContainer, 'u-hide-to-m')}>
       {categories.map(category => (
-        <p
+        <li
           key={category}
           data-test="search-breadcrumb"
           className={styles.searchBreadcrumb}>
           {category}
-        </p>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
 

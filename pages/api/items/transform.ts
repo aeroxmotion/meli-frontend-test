@@ -7,7 +7,7 @@ import type {
 import type { SearchItemsResult } from '../../../clients/ProxyClient'
 import author from '../author'
 
-const MAX_CATEGORIES_PER_SEARCH = 3
+const MAX_CATEGORIES_PER_SEARCH = 5
 const FILTER_QUERY_ID: MeLiSearchFilter<any>['id'] = 'category'
 
 const categoriesMapper = (

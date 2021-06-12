@@ -1,19 +1,18 @@
 .searchBreadcrumbsContainer {
-  display: flex;
-
   padding-top: var(--gap);
   padding-bottom: var(--gap);
 }
 
 .searchBreadcrumb {
-  display: flex;
-  align-items: flex-end;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
   line-height: 1;
 
   color: var(--light-grey-color);
   font-size: var(--text-s);
 
-  &:not(:first-child)::before {
+  &:not(:last-child)::after {
     --icon-size: var(--text-s);
 
     content: '';
