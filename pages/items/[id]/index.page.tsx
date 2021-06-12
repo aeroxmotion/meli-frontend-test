@@ -1,38 +1,17 @@
-import { useState } from 'react'
-
 import styles from './itemInfo.module.scss'
 import ThePage from '../../../components/singleton/ThePage/ThePage'
 import TheSearchBreadcrumbs from '../../../components/singleton/TheSearchBreadcrumbs/TheSearchBreadcrumbs'
 import { ItemInfoPageProps } from './types'
 import { formatItemPrice, formatItemPriceDecimals } from '../../../utils/format'
-import { ITEM_CATEGORIES_KEY } from '../types'
 import { MeLiImageType, resolveMeLiImageURL } from '../../../utils/resolve'
-import { useOnMount } from '../../../hooks/useOnMount'
 
 // Export ssr handler
 export { getServerSideProps } from './serverSide'
 
 const ItemInfoPage: React.FC<ItemInfoPageProps> = ({ item }) => {
-  const [categories, setCategories] = useState([])
-
-  useOnMount(() => {
-    try {
-      // Load saved categories
-      setCategories(
-        JSON.parse(
-          localStorage.getItem(`${ITEM_CATEGORIES_KEY}:${item.id}`)!
-        ) ?? []
-      )
-    } catch (_) {
-      // Ignore error
-      // If user doesn't perform any search previously
-      // (or clear its localStorage) we just don't load categories
-    }
-  })
-
   return (
     <ThePage titlePrefix={item.title}>
-      <TheSearchBreadcrumbs categories={categories} />
+      <TheSearchBreadcrumbs categories={item.categories} />
 
       <div className={styles.itemInfoContainer}>
         <div className={styles.itemInfoTopContainer}>

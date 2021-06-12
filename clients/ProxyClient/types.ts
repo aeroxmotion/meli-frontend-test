@@ -33,5 +33,6 @@ export type ItemResult = {
   item: ItemInfo & {
     sold_quantity: number
     description: string
+    categories: string[]
   }
 }

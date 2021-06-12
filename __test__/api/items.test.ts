@@ -78,7 +78,8 @@ describe('e2e /api/items', () => {
       expect.objectContaining<ItemResult['item']>({
         ...itemShape,
         sold_quantity: expect.any(Number),
-        description: expect.any(String)
+        description: expect.any(String),
+        categories: expect.arrayContaining([expect.any(String)])
       })
     )
   })

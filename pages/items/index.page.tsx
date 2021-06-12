@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { useRouter } from 'next/router'
 
 import type { ItemInfo } from '../../clients/ProxyClient'
-import { ItemsPageProps, ITEM_CATEGORIES_KEY } from './types'
+import { ItemsPageProps } from './types'
 import CommonSearchItem from '../../components/common/CommonSearchItem/CommonSearchItem'
 import ThePage from '../../components/singleton/ThePage/ThePage'
 import TheSearchBreadcrumbs from '../../components/singleton/TheSearchBreadcrumbs/TheSearchBreadcrumbs'
@@ -23,12 +23,6 @@ const ItemsPage: NextPage<ItemsPageProps> = ({ items, categories }) => {
         id
       }
     })
-
-    // Save searched categories (be used later in `ItemInfo` page)
-    localStorage.setItem(
-      `${ITEM_CATEGORIES_KEY}:${id}`,
-      JSON.stringify(categories)
-    )
   }
 
   return (

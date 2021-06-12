@@ -16,19 +16,32 @@ export type MeLiSearchResult = {
   }
 }
 
-export type MeLiSearchCategoryFilter = {
+export type MeLiSearchCategoryFilterSegment = {
   id: string
   name: string
 }
 
-export type MeLiSearchFilter = {
+export type MeLiSearchCategoryFilter = {
+  id: string
+  name: string
+  path_from_root: MeLiSearchCategoryFilterSegment[]
+}
+
+export type MeLiSearchFilter<Value> = {
   id: 'category' /* | etc. We don't care */
-  values: Array<MeLiSearchCategoryFilter>
+  values: Value[]
+}
+
+export type MeLiSearchAvailableFilter = {
+  id: string
+  name: string
+  results: number
 }
 
 export type MeLiSearchResults = {
-  results: Array<MeLiSearchResult>
-  available_filters: Array<MeLiSearchFilter>
+  results: MeLiSearchResult[]
+  filters: MeLiSearchFilter<MeLiSearchCategoryFilter>[]
+  available_filters: MeLiSearchFilter<MeLiSearchAvailableFilter>[]
 }
 
 export type MeLiItemInfo = {
@@ -39,6 +52,7 @@ export type MeLiItemInfo = {
   pictures: Array<{
     secure_url: string
   }>
+  category_id: string
   condition: string
   shipping: {
     free_shipping: boolean
@@ -48,4 +62,15 @@ export type MeLiItemInfo = {
 
 export type MeLiItemDescription = {
   plain_text: string
+}
+
+export type MeLiItemCategory = {
+  id: string
+  name: string
+}
+
+export type MeLiItemCategories = {
+  id: string
+  name: string
+  path_from_root: MeLiItemCategory[]
 }

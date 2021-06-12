@@ -1,4 +1,6 @@
 import type {
+  MeLiSearchAvailableFilter,
+  MeLiSearchCategoryFilter,
   MeLiSearchFilter,
   MeLiSearchResults
 } from '../../../clients/MeLiClient'
@@ -6,22 +8,37 @@ import type { SearchItemsResult } from '../../../clients/ProxyClient'
 import author from '../author'
 
 const MAX_CATEGORIES_PER_SEARCH = 3
-const FILTER_QUERY_ID: MeLiSearchFilter['id'] = 'category'
+const FILTER_QUERY_ID: MeLiSearchFilter<any>['id'] = 'category'
+
+const categoriesMapper = (
+  ...allFilters: MeLiSearchFilter<
+    MeLiSearchAvailableFilter | MeLiSearchCategoryFilter
+  >[][]
+): SearchItemsResult['categories'] => {
+  for (const filters of allFilters) {
+    const categoryFilter = filters.find(({ id }) => id === FILTER_QUERY_ID)
+
+    if (categoryFilter && categoryFilter.values.length) {
+      const [value] = categoryFilter.values
+      const values =
+        'path_from_root' in value ? value.path_from_root : categoryFilter.values
+
+      return values.slice(0, MAX_CATEGORIES_PER_SEARCH).map(({ name }) => name)
+    }
+  }
+
+  return []
+}
 
 export function transformMeLiSearchResults({
   results,
+  filters,
   available_filters
 }: MeLiSearchResults): SearchItemsResult {
-  let categories: SearchItemsResult['categories'] = []
-  const categoryFilter = available_filters.find(
-    ({ id }) => id === FILTER_QUERY_ID
+  const categories: SearchItemsResult['categories'] = categoriesMapper(
+    filters,
+    available_filters
   )
-
-  if (categoryFilter) {
-    categories = categoryFilter.values
-      .slice(0, MAX_CATEGORIES_PER_SEARCH)
-      .map(({ name }) => name)
-  }
 
   return {
     author,

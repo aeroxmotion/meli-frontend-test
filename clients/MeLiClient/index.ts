@@ -6,7 +6,8 @@ import type {
   MeLiSearchResults,
   MeLiSearchResult,
   MeLiItemInfo,
-  MeLiItemDescription
+  MeLiItemDescription,
+  MeLiItemCategories
 } from './types'
 
 // Expose types
@@ -58,6 +59,17 @@ class MeLiClient extends BaseClient {
         plain_text: 'Producto sin descripción'
       }
     }
+  }
+
+  /**
+   * Obtiene las categorías a partir del `id` categoría del item
+   * especificado
+   *
+   * @param categoryId
+   * @returns
+   */
+  async getItemCategories(categoryId: MeLiItemInfo['category_id']) {
+    return this.get<MeLiItemCategories>(`categories/${categoryId}`)
   }
 }
 

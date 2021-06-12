@@ -11,11 +11,16 @@ const getItemInfoHandler: NextApiHandler<ItemResult | {}> = async (
   try {
     const itemId = req.query.id as string
 
-    const itemInfo = await meLiClient.getItemInfo(itemId)
-    const description = await meLiClient.getItemDescription(itemId)
+    const [itemInfo, description] = await Promise.all([
+      meLiClient.getItemInfo(itemId),
+      meLiClient.getItemDescription(itemId)
+    ])
+
+    const categories = await meLiClient.getItemCategories(itemInfo.category_id)
 
     const transformedResult = transformMeLiItemInfo(
       itemInfo,
+      categories.path_from_root,
       description.plain_text
     )
 
