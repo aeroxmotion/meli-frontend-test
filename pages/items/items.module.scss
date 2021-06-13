@@ -1,3 +1,5 @@
+@import '../../styles/tools.scss';
+
 .itemsContainer {
   background-color: var(--pure-white-color);
   border-radius: var(--border-radius);
@@ -11,4 +13,16 @@
   height: 1px;
 
   background-color: var(--white-color);
+}
+
+.itemsNotFound {
+  padding: 2em;
+
+  text-align: center;
+  font-size: var(--text-m);
+  color: var(--dark-grey-color);
+
+  @include mq-to('m') {
+    font-size: var(--text-s);
+  }
 }

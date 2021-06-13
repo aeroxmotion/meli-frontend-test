@@ -5,24 +5,20 @@ import { ItemsPageProps } from './types'
 
 export const getServerSideProps: GetServerSideProps<ItemsPageProps> = async ({
   req,
-  query
+  query: { search }
 }) => {
   let items: ItemsPageProps['items'] = []
   let categories: ItemsPageProps['categories'] = []
 
-  try {
-    const proxyClient = new ProxyClient(req)
+  const searchText = Array.isArray(search) ? search[0] : search
 
-    ;({ items, categories } = await proxyClient.searchItems(
-      query.search as string
-    ))
-  } catch (error) {
-    console.log('Error while fetching items:', error)
-  }
+  if (searchText) {
+    try {
+      const proxyClient = new ProxyClient(req)
 
-  if (!items.length) {
-    return {
-      notFound: true
+      ;({ items, categories } = await proxyClient.searchItems(searchText))
+    } catch (error) {
+      console.log('Error while fetching items:', error)
     }
   }
 

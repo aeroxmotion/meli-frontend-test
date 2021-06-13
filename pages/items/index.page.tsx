@@ -25,8 +25,15 @@ const ItemsPage: NextPage<ItemsPageProps> = ({ items, categories }) => {
     })
   }
 
-  return (
-    <ThePage titlePrefix="Búsqueda">
+  const renderNotFound = () => (
+    <p className={styles.itemsNotFound}>
+      No hemos podido encontrar ningún producto que coincida con tu criterio de
+      búsqueda
+    </p>
+  )
+
+  const renderContent = () => (
+    <>
       <TheSearchBreadcrumbs categories={categories} />
 
       <div className={classNames(styles.itemsContainer, 'u-no-br-to-m')}>
@@ -41,6 +48,12 @@ const ItemsPage: NextPage<ItemsPageProps> = ({ items, categories }) => {
           </React.Fragment>
         ))}
       </div>
+    </>
+  )
+
+  return (
+    <ThePage titlePrefix="Búsqueda">
+      {(items.length ? renderContent : renderNotFound)()}
     </ThePage>
   )
 }
